@@ -2,7 +2,7 @@
   "name": "Auction",
   "private": true,
   "version": "0.0.0",
-  "description": "a Sails application",
+  "description": "a Sail application",
   "keywords": [],
   "dependencies": {
     "bower": "latest",
