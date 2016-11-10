@@ -1,21 +1,26 @@
 {
-  "name": "Auction",
-  "description": "a Sails application",
-  "main": "app.js",
+  "name": "assets",
   "authors": [
-    "anonymous node/sails user"
+    "Alexandr Kravchuk <oleksandr.kravchuk12@gmail.com>"
   ],
+  "description": "",
+  "main": "",
   "license": "MIT",
   "homepage": "",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
+    "assets/bower_components",
     "test",
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "~2.2.2"
+    "angular": "1.5.8",
+    "angular-bootstrap": "2.2.0",
+    "angular-mocks": "1.5.8",
+    "angular-moment": "1.0.0",
+    "angular-route": "1.5.8",
+    "jquery": "3.1.1"
   }
-
 }
