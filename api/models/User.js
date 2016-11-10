@@ -16,7 +16,7 @@ module.exports = {
       type: 'string',
       required: true
     },
-    password:{
+    password: {
       type: 'string',
       required: true
     },
@@ -24,12 +24,12 @@ module.exports = {
       type: 'string',
       required: true,
       enum: ['Admin', 'User']
-    },
-    lots: {
-      collection: 'lot',
-      via: 'users'
-      //dominant: true
     }
+    // ,lots: {
+    //   collection: 'lot',
+    //   via: 'users'
+    //   //dominant: true
+    // }
   }
 };
 

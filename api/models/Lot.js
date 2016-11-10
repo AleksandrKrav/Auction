@@ -16,7 +16,7 @@ module.exports = {
       type: 'integer',
       required: true
     },
-    users:{
+    users: {
       collection: 'user',
       via: 'lots'
     },
@@ -27,18 +27,18 @@ module.exports = {
       type: 'date',
       required: true
     },
-    finishDate:{
+    finishDate: {
       type: 'date'
     },
-    step:{
+    step: {
       type: 'integer'
     },
-    state:{
+    state: {
       type: 'string',
       required: true,
       enum: ['NEW', 'ACTIVE', 'INACTIVE']
     },
-    comments:{
+    comments: {
       type: 'string'
     }
   }
