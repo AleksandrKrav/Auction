@@ -19,7 +19,6 @@ module.exports = {
     UserService.addUser(user, function(success) {
       res.json(success)
     });
-
   },
 
   removeUser: function(req, res) {

@@ -1,8 +1,8 @@
 'use strict';
 
-var userApp = angular.module('userApp', ['ngRoute', 'ui.bootstrap']);
+var auApp = angular.module('auApp', ['ngRoute', 'ui.bootstrap']);
 
-userApp.config(['$routeProvider',
+auApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.when('/', {
       templateUrl: '/templates/user.html',

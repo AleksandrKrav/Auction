@@ -1,4 +1,4 @@
-userApp.controller('UserCtrl', ['$scope', '$rootScope', 'UserService', function($scope, $rootScope, UserService) {
+auApp.controller('UserCtrl', ['$scope', '$rootScope', 'UserService', function($scope, $rootScope, UserService) {
   $scope.formData = {};
   $scope.users = [];
 

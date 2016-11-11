@@ -1,4 +1,4 @@
-userApp.service('UserService', function($http, $q) {
+auApp.service('UserService', function($http, $q) {
   return {
     'getUsers': function() {
       var defer = $q.defer();
