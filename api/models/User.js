@@ -8,23 +8,24 @@
 module.exports = {
 
   attributes: {
+
     name: {
       type: 'string',
       required: true
     },
-    login: {
-      type: 'string',
-      required: true
-    },
-    password: {
-      type: 'string',
-      required: true
-    },
-    roles: {
-      type: 'string',
-      required: true,
-      enum: ['Admin', 'User']
-    }
+    // login: {
+    //   type: 'string',
+    //   required: true
+    // },
+    // password: {
+    //   type: 'string',
+    //   required: true
+    // },
+    // roles: {
+    //   type: 'string',
+    //   required: true,
+    //   enum: ['Admin', 'User']
+    // }
     // ,lots: {
     //   collection: 'lot',
     //   via: 'users'
