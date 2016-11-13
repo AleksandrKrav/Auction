@@ -12,12 +12,12 @@ module.exports = {
       type: 'string',
       required: true
     },
-    owner: {
-      model: 'user'
-    },
-    winner: {
-      model: 'user'
-    }
+    // owner: {
+    //   model: 'user'
+    // },
+    // winner: {
+    //   model: 'user'
+    // }
   }
 };
 

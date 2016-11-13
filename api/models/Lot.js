@@ -16,29 +16,29 @@ module.exports = {
       type: 'integer',
       required: true
     },
-    users:{
-      collection: 'user',
-      via: 'lots'
-    },
-    subject: {
-      model: 'subject'
-    },
+    // users: {
+    //   collection: 'user',
+    //   via: 'lots'
+    // },
+    // subject: {
+    //   model: 'subject'
+    // },
     startDate: {
       type: 'date',
       required: true
     },
-    finishDate:{
+    finishDate: {
       type: 'date'
     },
-    step:{
+    step: {
       type: 'integer'
     },
-    state:{
+    state: {
       type: 'string',
       required: true,
       enum: ['NEW', 'ACTIVE', 'INACTIVE']
     },
-    comments:{
+    comments: {
       type: 'string'
     }
   }
