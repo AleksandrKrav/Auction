@@ -10,6 +10,9 @@ auApp.config(['$routeProvider',
     }).when('/lot', {
       templateUrl: '/templates/user.html',
       controller: 'LotCtrl'
+    }).when('/sub', {
+      templateUrl: '/templates/user.html',
+      controller: 'SabjectCtrl'
     }).otherwise({
       redirectTo: '/',
       caseInsensitiveMatch: true

@@ -30,7 +30,7 @@ module.exports = {
       state: 'NEW',
       comments:{}
     }).exec(function (err, lot) {
-      Subject.create({name: lot.Subject}).exec(function (err, lot) {});
+      Subject.create({name: lot.sabject}).exec(function (err, lot) {});
       if (err) throw err;
       next(lot);
     })

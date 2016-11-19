@@ -4,14 +4,12 @@
 auApp.controller('LotCtrl', ['$scope', '$rootScope', 'LotService', function($scope, $rootScope, LotService) {
   $scope.setBet = function() {
     console.log($scope.formData);
-    //ToDo: init BetData
     LotService.setBet($scope.BetData).then(function(response) {
       console.log(response);
     });
   };
   $scope.addLot = function() {
     console.log($scope.formData);
-    //ToDo: init LotData
     LotService.addLot($scope.LotData).then(function(response) {
       console.log(response);
     });

@@ -6,6 +6,10 @@
  */
 
 module.exports = {
-	
+  getSabjects: function(req, res) {
+    SabjectService.getSabjects(function(sub) {
+      res.json(sub)
+    })
+  }
 };
 

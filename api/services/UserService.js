@@ -10,8 +10,13 @@ module.exports = {
   },
 
   addUser: function (user, next) {
-    console.log(user);
-    User.create({value: user}).exec(function (err, user) {
+    console.log('Service ' + user);
+    User.create({
+      name: user.name,
+      login: user.login,
+      password: user.password,
+      roles: 'User'
+    }).exec(function (err, user) {
       if (err) throw err;
       next(user);
     })

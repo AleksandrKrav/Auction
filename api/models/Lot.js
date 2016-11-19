@@ -16,13 +16,13 @@ module.exports = {
       type: 'integer',
       required: true
     },
-    // users: {
-    //   collection: 'user',
-    //   via: 'lots'
-    // },
-    // subject: {
-    //   model: 'subject'
-    // },
+    users: {
+      collection: 'user',
+      via: 'lots'
+    },
+    subject: {
+      model: 'sabject'
+    },
     startDate: {
       type: 'date',
       required: true
