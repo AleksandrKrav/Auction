@@ -1,0 +1,21 @@
+<div class="container" ng-controller="LotCtrl">
+  <div class="row">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-4" align="center">
+          <h2>{{user.name}} information</h2>
+          <p>{{user.login}}</p>
+          <p>{{user.password}}</p>
+          <p>{{user.roles}}</p>
+          <button ng-click="showForm = true">Add lot for auction?</button>
+          <form ng-show="showForm">
+            <input type="text" ng-model="sub.name" placeholder="Name of item" required>
+            <input type="text" ng-model="lot.name" placeholder="Name of lot" required>
+            <input type="number" ng-model="lot.price" placeholder="Price" required>
+            <button type="submit" ng-click="addLot()">Add Lot</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -15,12 +15,12 @@ module.exports = {
     });
   },
   addLot: function(req, res) {
-    console.log(req.body);
+    console.log('Add lot ctrl ' + req.body);
     var lot = (req.body) ? req.body : undefined;
 
-    LotService.addLot(lot, function(success) {
-      res.json(success)
-    });
+    // LotService.addLot(lot, function(success) {
+    //   res.json(success)
+    // });
   },
   removeLot: function(req, res) {
     var lot = (req.body) ? req.body : undefined;

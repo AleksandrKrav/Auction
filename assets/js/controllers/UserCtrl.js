@@ -1,7 +1,6 @@
-auApp.controller('UserCtrl', ['$scope', '$rootScope', 'UserService', function($scope, $rootScope, UserService) {
-  var vm = this;
+auApp.controller('UserCtrl', ['$scope', '$rootScope', '$location', 'UserService',
+  function($scope, $rootScope, $location, UserService) {
 
-  $scope.formData = {};
   $scope.users = [];
 
   UserService.getUsers().then(function(response) {
@@ -10,17 +9,18 @@ auApp.controller('UserCtrl', ['$scope', '$rootScope', 'UserService', function($s
   });
 
   $scope.addUser = function() {
-    console.log("asdf");
     var user = $scope.user;
 
     console.log(user);
-
     UserService.addUser(user).then(function(response) {
       console.log(response);
-
-      $scope.users.push(user);
-      $scope.user = {};
+      $location.path('/users');
     });
+  };
+
+  $scope.getDetail = function(id){
+    console.log(id);
+    $location.path('/userdetail/' + id);
   };
 
   $scope.removeUser = function(user) {

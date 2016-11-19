@@ -1,29 +1,8 @@
 <div class="container" ng-controller="UserCtrl">
-  <div class="jumbotron">
-    <h1 align="center"></h1>
-    <br>User Application
-    <div id="todo-form" class="row">
-      <div class="col-sm-8 col-sm-offset-2 text-center">
-        <form>
-          <div class="form-group">
-            <input type="text" class="form-control input-lg text-center" placeholder="Add Name!" required
-                   ng-model="user.name">
-            <br>
-            <input type="text" class="form-control input-lg text-center" placeholder="Add Login!" required
-                   ng-model="user.login">
-            <br>
-            <input type="text" class="form-control input-lg text-center" placeholder="Add Password!" required
-                   ng-model="user.password">
-            <br>
-            <button type="submit" class="btn btn-primary btn-lg" ng-click="addUser()">Add User</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-  <div id="User-list" class="row">
+  <div class="row">
     <div class="col-sm-4 col-sm-offset-4">
       <table>
+        <thead>User Application </thead>
         <tr>
           <th>ID</th>
           <th>login</th>
@@ -35,6 +14,7 @@
           <td>{{user.login}}</td>
           <td>{{user.password}}</td>
           <td>{{user.name}}</td>
+          <td><button ng-click="getDetail(user.id)">Get detail</button></td>
         </tr>
       </table>
     </div>

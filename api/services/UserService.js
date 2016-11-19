@@ -22,6 +22,15 @@ module.exports = {
     })
   },
 
+  getUser: function(id, next){
+    console.log('Service user id ' + id);
+    User.findOne({id: id}).exec(function (err, user) {
+      if (err) throw err;
+      console.log(user);
+      next(user);
+    });
+  },
+
   removeUser: function (user, next) {
     User.destroy({value: user}).exec(function (err, user) {
       if (err) throw err;
