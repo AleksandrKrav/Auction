@@ -1,3 +1,6 @@
+/**
+ * Created by Aleksandr on 19.11.2016.
+ */
 auApp.controller('LotCtrl', ['$scope', '$rootScope', 'LotService', function($scope, $rootScope, LotService) {
   $scope.setBet = function() {
     console.log($scope.formData);
