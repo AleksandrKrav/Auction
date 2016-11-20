@@ -22,14 +22,7 @@ module.exports = {
   },
   addLot: function (lot, next) {
     console.log(lot);
-    Lot.create({name: lot.name,
-      price: lot.price,
-      startDate: lot.startDate,
-      finishDate:lot.finishDate,
-      step: lot.step,
-      state: 'NEW',
-      comments:{}
-    }).exec(function (err, lot) {
+    Lot.create(lot).exec(function (err, lot) {
       // Sabject.create({name: lot.sabject}).exec(function (err, lot) {});
       if (err) throw err;
       next(lot);

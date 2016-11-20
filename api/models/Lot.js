@@ -20,7 +20,7 @@ module.exports = {
       collection: 'user',
       via: 'lots'
     },
-    subject: {
+    sabject: {
       model: 'sabject'
     },
     startDate: {

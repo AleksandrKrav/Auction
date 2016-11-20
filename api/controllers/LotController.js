@@ -15,18 +15,36 @@ module.exports = {
     });
   },
   addLot: function (req, res) {
-    console.log('Add lot ctrl ' + req.body);
+    console.log('Add lot ctrl ' + JSON.stringify(req.body));
     var lot = (req.body) ? req.body : undefined;
-    var sab = SabjectService.addSabject({
-        name: lot.sabjectName,
-        user_id: lot.userId
-      },
-      function (success) {
-        console.log(success)
-      });
-    var lot =  LotService.addLot({
+    var sab = Sabject.create({
+      name: lot.sabjectName,
+      owner: lot.userId,
+    }).then(function (err, sab) {
+      if (err) throw err;
+      return sab;
+    });
 
-    }, function(success) {
+    // SabjectService.addSabject({
+    //     name: lot.sabjectName,
+    //     user_id: lot.userId
+    //   },
+    //   function (success) {
+    //     console.log(success)
+    //     sab = success;
+    //   });
+
+    LotService.addLot({
+      name: lot.lotName,
+      price: lot.lotPrice,
+      users: lot.userId,
+      sabject: sab.id,
+      startDate: new Date(),
+      //finishDate: '',
+      step: 0,
+      state: 'NEW',
+      comments: ''
+    }, function (success) {
       res.json(success)
     });
   },

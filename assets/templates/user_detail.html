@@ -9,11 +9,34 @@
           <p>{{user.roles}}</p>
           <button ng-click="showForm = true">Add lot for auction?</button>
           <form ng-show="showForm">
-            <input type="text" ng-model="sub.name" placeholder="Name of item" required>
+            <input type="text" ng-model="lot.sab.name" placeholder="Name of item" required>
             <input type="text" ng-model="lot.name" placeholder="Name of lot" required>
             <input type="number" ng-model="lot.price" placeholder="Price" required>
             <button type="submit" ng-click="addLot()">Add Lot</button>
           </form>
+          <table>
+            <thead>User Lots </thead>
+            <tr>
+              <th>name</th>
+              <th>price</th>
+              <th>startDate</th>
+              <th>finishDate</th>
+              <th>step</th>
+              <th>state</th>
+              <th>comments</th>
+            </tr>
+            <tr ng-repeat="lot in lots">
+              <td>{{lot.name}}</td>
+              <td>{{lot.price}}</td>
+              <td>{{lot.startDate}}</td>
+              <td>{{lot.finishDate}}</td>
+              <td>{{lot.step}}</td>
+              <td>{{lot.state}}</td>
+              <td>{{lot.comments}}</td>
+              <td><button ng-click="getDetailSab(lot.sabject.id)">Get detail about sabject</button></td>
+              <td><button ng-click="getDetailUser(lot.users.id)">Get detail about user</button></td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>

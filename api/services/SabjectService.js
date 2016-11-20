@@ -9,7 +9,7 @@ module.exports = {
     });
   },
   addSabject: function (sab, next) {
-    console.log('Service create' + sab.name + sab.user_id);
+    //console.log('Service create ' + sab.name + sab.user_id);
     Sabject.create({
       name: sab.name,
       owner: sab.user_id,

@@ -97,7 +97,7 @@
 
 
 var cssFilesToInject = [
-    'bower_components/bootswatch/dist/css/bootstrap.css',
+    'bower_components/bootstrap/dist/css/bootstrap.css',
     'styles/**/*.css'
   ];
 var jsFilesToInject = [
@@ -106,7 +106,7 @@ var jsFilesToInject = [
   '/bower_components/angular/angular.js',
   '/bower_components/angular-route/angular-route.js',
   '/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
-  '/bower_components/bootstrap/dist/js/boostrap.js',
+  '/bower_components/bootstrap/dist/js/bootstrap.min.js',
   'js/dependencies/**/*.js',
 
   'js/**/*.js'
