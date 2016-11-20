@@ -7,5 +7,15 @@ module.exports = {
       if(err) throw err;
       next(subj);
     });
+  },
+  addSabject: function (sab, next) {
+    console.log('Service create' + sab.name + sab.user_id);
+    Sabject.create({
+      name: sab.name,
+      owner: sab.user_id,
+    }).exec(function (err, user) {
+      if (err) throw err;
+      next(user);
+    })
   }
 };
