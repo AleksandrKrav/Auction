@@ -10,7 +10,6 @@ module.exports = {
   },
 
   addUser: function (user, next) {
-    console.log('Service ' + user);
     User.create({
       name: user.name,
       login: user.login,
@@ -23,7 +22,6 @@ module.exports = {
   },
 
   getUser: function(id, next){
-    console.log('Service user id ' + id);
     User.findOne({id: id}).exec(function (err, user) {
       if (err) throw err;
       console.log(user);

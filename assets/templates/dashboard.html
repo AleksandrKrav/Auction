@@ -1,0 +1,39 @@
+<div class="container" ng-controller="LotCtrl">
+  <div class="row">
+    <div class="form-group">
+      <table>
+        <thead>Lots list</thead>
+        <tr>
+          <th>ID</th>
+          <th>name</th>
+          <th>startDate</th>
+          <th>finishDate</th>
+          <th>step</th>
+          <th>state</th>
+          <th>comments</th>
+          <th>sabject</th>
+          <th>users</th>
+        </tr>
+        <tr ng-repeat="lot in lots">
+          <td>{{lot.id}}</td>
+          <td>{{lot.name}}</td>
+          <td>{{lot.startDate}}</td>
+          <td>{{lot.finishDate}}</td>
+          <td>{{lot.step}}</td>
+          <td>{{lot.state}}</td>
+          <td>{{lot.comments}}</td>
+          <td>
+            <button ng-click="getDetail(lot.sabject.id)">Get detail sabject</button>
+          </td>
+          <!--<td>-->
+            <!--<ul>-->
+              <!--<li ng-repeat="user in lot.users">-->
+                <!--{{user.id}} || {{user.name}}-->
+              <!--</li>-->
+            <!--</ul>-->
+          <!--</td>-->
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

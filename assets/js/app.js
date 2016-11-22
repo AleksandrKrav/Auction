@@ -7,17 +7,17 @@ auApp.config(['$routeProvider',
     $routeProvider.when('/', {
       templateUrl: '/templates/login.html',
       controller: 'UserCtrl'
-    }).when('/users', {
-      templateUrl: '/templates/user_detail.html',
-      controller: 'UserCtrl'
+    }).when('/dashboard', {
+      templateUrl: '/templates/dashboard.html',
+      controller: 'DashboardCtrl'
     }).when('/userdetail/:id', {
       templateUrl: '/templates/user_detail.html',
       controller: 'LotCtrl'
     }).when('/sub', {
-      templateUrl: '/templates/user.html',
+      templateUrl: '/templates/users.html',
       controller: 'SabjectCtrl'
     }).when('/users', {
-      templateUrl: '/templates/user.html',
+      templateUrl: '/templates/users.html',
       controller: 'UserCtrl'
     }).otherwise({
       redirectTo: '/',

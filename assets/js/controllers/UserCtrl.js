@@ -14,7 +14,7 @@ auApp.controller('UserCtrl', ['$scope', '$rootScope', '$location', 'UserService'
     console.log(user);
     UserService.addUser(user).then(function(response) {
       console.log(response);
-      $location.path('/users');
+      $location.path('/dashboard');
     });
   };
 

@@ -13,7 +13,6 @@ module.exports = {
   },
 
   getUser: function(req, res){
-    console.log(req.body);
     var id = (req.body.user_id) ? req.body.user_id : undefined;
 
     UserService.getUser(id, function (success) {
@@ -22,7 +21,6 @@ module.exports = {
   },
 
   addUser: function(req, res) {
-    console.log(req.body);
     var user = (req.body) ? req.body : undefined;
 
     UserService.addUser(user, function(success) {

@@ -1,5 +1,14 @@
 auApp.service('LotService', function($http, $q) {
   return {
+    'getLots': function() {
+      var defer = $q.defer();
+      $http.get('/lot/getLots').success(function(resp){
+        defer.resolve(resp);
+      }).error( function(err) {
+        defer.reject(err);
+      });
+      return defer.promise;
+    },
     'setBet': function(bet) {
       var defer = $q.defer();
       $http.post('/lot/setBet', bet).success(function(resp){
