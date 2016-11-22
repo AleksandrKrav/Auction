@@ -12,6 +12,16 @@ module.exports = {
       res.json(lots);
     });
   },
+  getLot: function (req, res) {
+    var owner = (req.body) ? req.body : undefined;
+    Lot.find().populate('sabject',{
+      where:{
+        owner:owner.user_id
+    }}).exec(function (err, lot) {
+        if (err) throw err;
+        res.json(lot);
+    });
+  },
 
 
   setBet: function (req, res) {

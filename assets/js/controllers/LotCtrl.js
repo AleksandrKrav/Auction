@@ -11,7 +11,10 @@ auApp.controller('LotCtrl', ['$scope', '$routeParams', 'LotService', 'UserServic
       console.log(response);
       $scope.lots = response;
     });
-
+    LotService.getLot(userID).then(function (response) {
+      console.log(response);
+      $scope.lots = response;
+    });
     UserService.getUser(userID).then(function (response) {
       console.log(response);
       $scope.user = response;
