@@ -34,16 +34,16 @@ module.exports = {
   },
   addLot: function (req, res) {
 
-    var myLot = (req.body) ? req.body : undefined;
+    var lot = (req.body) ? req.body : undefined;
 
     Sabject.create({
-      name: myLot.sabjectName,
-      owner: myLot.userId
-    }).exec(function (sab) {
-
+      name: lot.sabjectName,
+      owner: lot.userId
+    }).exec(function (err, sab) {
+      if (err) throw  err;
       Lot.create({
-        name: myLot.lotName,
-        price: myLot.lotPrice,
+        name: lot.lotName,
+        price: lot.lotPrice,
         //users: lot.userId,
         sabject: sab,
         startDate: new Date(),
