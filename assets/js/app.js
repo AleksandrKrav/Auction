@@ -7,6 +7,9 @@ auApp.config(['$routeProvider',
     $routeProvider.when('/', {
       templateUrl: '/templates/login.html',
       controller: 'UserCtrl'
+    }).when('/users', {
+      templateUrl: '/templates/user_detail.html',
+      controller: 'UserCtrl'
     }).when('/userdetail/:id', {
       templateUrl: '/templates/user_detail.html',
       controller: 'LotCtrl'
