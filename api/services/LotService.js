@@ -21,9 +21,8 @@ module.exports = {
     })
   },
   addLot: function (lot, next) {
-    console.log(lot);
+    // console.log(lot);
     Lot.create(lot).exec(function (err, lot) {
-      // Sabject.create({name: lot.sabject}).exec(function (err, lot) {});
       if (err) throw err;
       next(lot);
     })

@@ -30,6 +30,7 @@ module.exports = {
       name: lot.sabjectName,
       owner: lot.userId
     }).exec(function (err, sab) {
+      console.log("Sab " + sab.id);
       if (err) throw  err;
       Lot.create({
         name: lot.lotName,

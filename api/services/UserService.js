@@ -24,7 +24,7 @@ module.exports = {
   getUser: function(id, next){
     User.findOne({id: id}).exec(function (err, user) {
       if (err) throw err;
-      console.log(user);
+      // console.log(user);
       next(user);
     });
   },
