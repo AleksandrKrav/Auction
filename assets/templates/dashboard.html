@@ -11,7 +11,8 @@
           <th>step</th>
           <th>state</th>
           <th>comments</th>
-          <th>sabject</th>
+          <th>owner</th>
+          <th>winner</th>
           <th>users</th>
         </tr>
         <tr ng-repeat="lot in lots">
@@ -22,16 +23,15 @@
           <td>{{lot.step}}</td>
           <td>{{lot.state}}</td>
           <td>{{lot.comments}}</td>
+          <td>{{lot.owner.name}}</td>
+          <td>{{lot.winner.name}}</td>
           <td>
-            <button ng-click="getDetail(lot.sabject.id)">Get detail sabject</button>
+            <ul>
+              <li ng-repeat="user in lot.users">
+                {{user.id}} || {{user.name}}
+              </li>
+            </ul>
           </td>
-          <!--<td>-->
-            <!--<ul>-->
-              <!--<li ng-repeat="user in lot.users">-->
-                <!--{{user.id}} || {{user.name}}-->
-              <!--</li>-->
-            <!--</ul>-->
-          <!--</td>-->
         </tr>
       </table>
     </div>

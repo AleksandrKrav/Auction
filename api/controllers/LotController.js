@@ -4,13 +4,17 @@
  * @description :: Server-side logic for managing Lots
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
-
 module.exports = {
   getLots: function (req, res) {
     Lot.find().populateAll().exec(function (err, lots) {
       if (err) throw err;
       res.json(lots);
     });
+  },
+
+  getLot: function (req, res) {
+    var owner = (req.body) ? req.body : undefined;
+    console.log('user id ' + owner.user_id);
   },
 
 
@@ -26,29 +30,22 @@ module.exports = {
 
     var lot = (req.body) ? req.body : undefined;
 
-    Sabject.create({
-      name: lot.sabjectName,
-      owner: lot.userId
-    }).exec(function (err, sab) {
-      console.log("Sab " + sab.id);
+    Lot.create({
+      name: lot.lotName,
+      price: lot.lotPrice,
+      type: lot.lotType,
+      owner: lot.userId,
+      startDate: new Date(),
+      //finishDate: '',
+      step: 0,
+      state: 'NEW',
+      comments: ''
+    }).exec(function (err, lot) {
       if (err) throw  err;
-      Lot.create({
-        name: lot.lotName,
-        price: lot.lotPrice,
-        //users: lot.userId,
-        sabject: sab,
-        startDate: new Date(),
-        //finishDate: '',
-        step: 0,
-        state: 'NEW',
-        comments: ''
-      }).exec(function (err, lot) {
-        if (err) throw  err;
-        res.json(lot);
-      });
+      res.json(lot);
     });
-
   },
+
   removeLot: function (req, res) {
     var lot = (req.body) ? req.body : undefined;
 
@@ -56,6 +53,7 @@ module.exports = {
       res.json(success)
     });
   },
+
   makeLotActive: function (req, res) {
     var lot = (req.body) ? req.body : undefined;
 
@@ -63,6 +61,7 @@ module.exports = {
       res.json(success)
     });
   },
+
   makeLotInActive: function (req, res) {
     var lot = (req.body) ? req.body : undefined;
 

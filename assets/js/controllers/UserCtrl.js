@@ -11,7 +11,6 @@ auApp.controller('UserCtrl', ['$scope', '$rootScope', '$location', 'UserService'
   $scope.addUser = function() {
     var user = $scope.user;
 
-    console.log(user);
     UserService.addUser(user).then(function(response) {
       console.log(response);
       $location.path('/dashboard');
@@ -24,7 +23,7 @@ auApp.controller('UserCtrl', ['$scope', '$rootScope', '$location', 'UserService'
   };
 
   $scope.removeUser = function(user) {
-    console.log(user);
+
     UserService.removeUser(user).then(function(response) {
       $scope.users.splice($scope.users.indexOf(user), 1);
       console.log(response);
