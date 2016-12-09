@@ -12,15 +12,17 @@ auApp.controller('LotCtrl', ['$scope', '$routeParams', 'LotService', 'UserServic
       $scope.lots = response;
     });
 
-    UserService.getUser(userID).then(function (response) {
-      console.log(response);
-      $scope.user = response;
-    });
+    if(userID){
+      UserService.getUser(userID).then(function (response) {
+        console.log(response);
+        $scope.user = response;
+      });
+    }
 
     $scope.addLot = function () {
       var lotInfo = {
         userId: userID,
-        sabjectName: $scope.lot.sab.name,
+        lotType: $scope.lot.type,
         lotPrice: $scope.lot.price,
         lotName: $scope.lot.name
       };

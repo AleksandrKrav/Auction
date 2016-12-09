@@ -13,9 +13,6 @@ auApp.config(['$routeProvider',
     }).when('/userdetail/:id', {
       templateUrl: '/templates/user_detail.html',
       controller: 'LotCtrl'
-    }).when('/sub', {
-      templateUrl: '/templates/users.html',
-      controller: 'SabjectCtrl'
     }).when('/users', {
       templateUrl: '/templates/users.html',
       controller: 'UserCtrl'

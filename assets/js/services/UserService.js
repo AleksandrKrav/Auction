@@ -12,7 +12,7 @@ auApp.service('UserService', function($http, $q) {
     'getUser': function(user_id){
       console.log(user_id);
       var defer = $q.defer();
-      $http.post('/user/getUser', ({user_id : user_id})).success(function(resp){
+      $http.get('/user/getUser', ( {params : {user_id : user_id}})).success(function(resp){
         defer.resolve(resp);
       }).error( function(err) {
         defer.reject(err);
@@ -33,6 +33,16 @@ auApp.service('UserService', function($http, $q) {
       console.log(user);
       var defer = $q.defer();
       $http.post('/user/removeUser', user).success(function(resp){
+        defer.resolve(resp);
+      }).error( function(err) {
+        defer.reject(err);
+      });
+      return defer.promise;
+    },
+    'editUser' : function(user){
+      console.log(user);
+      var defer = $q.defer();
+      $http.post('/user/editUser', user).success(function(resp){
         defer.resolve(resp);
       }).error( function(err) {
         defer.reject(err);
