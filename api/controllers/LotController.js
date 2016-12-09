@@ -12,9 +12,14 @@ module.exports = {
     });
   },
 
-  getLot: function (req, res) {
-    var owner = (req.body) ? req.body : undefined;
-    console.log('user id ' + owner.user_id);
+  getLotsByOwnerId: function (req, res) {
+    var ownerId = (req.param('id')) ? req.param('id') : undefined;
+
+    Lot.find({owner: ownerId}).exec(function (err, lots) {
+      if (err) throw err;
+      res.json(lots);
+    });
+
   },
 
   setBet: function (req, res) {
@@ -43,6 +48,23 @@ module.exports = {
     }).exec(function (err, lot) {
       if (err) throw  err;
       res.json(lot);
+    });
+  },
+
+  editLot: function(req, resp){
+    var lot = (req.body) ? req.body : undefined;
+
+    Lot.update({id: lot.id}, {
+      name: lot.name,
+      price: lot.price,
+      type: lot.type,
+      finishDate: lot.finishDate,
+      step: lot.step,
+      state: lot.state,
+      comments: lot.comments
+    }).exec(function (err, lot) {
+      if (err) throw  err;
+      resp.json(lot);
     });
   },
 
