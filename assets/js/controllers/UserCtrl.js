@@ -4,7 +4,6 @@ auApp.controller('UserCtrl', ['$scope', '$rootScope', '$location', 'UserService'
   $scope.users = [];
 
   UserService.getUsers().then(function(response) {
-    console.log(response);
     $scope.users = response;
   });
 
@@ -12,22 +11,24 @@ auApp.controller('UserCtrl', ['$scope', '$rootScope', '$location', 'UserService'
     var user = $scope.user;
 
     UserService.addUser(user).then(function(response) {
-      console.log(response);
+      debugger;
       $location.path('/dashboard');
     });
   };
 
   $scope.getDetail = function(id){
-    console.log(id);
     $location.path('/userdetail/' + id);
   };
 
   $scope.removeUser = function(user) {
-
-    UserService.removeUser(user).then(function(response) {
+    UserService.removeUser({id: user.id}).then(function(response) {
       $scope.users.splice($scope.users.indexOf(user), 1);
-      console.log(response);
     });
   };
 
+  $scope.editUser = function(user){
+    UserService.editUser({user: user}).then(function(resp){
+      console.log(resp);
+    });
+  };
 }]);

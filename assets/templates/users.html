@@ -1,20 +1,22 @@
 <div class="container" ng-controller="UserCtrl">
   <div class="row">
-    <div class="col-sm-4 col-sm-offset-4">
-      <table>
-        <thead>User Application </thead>
+    <div class="col-md-6 col-md-offset-2">
+      <table class="table">
+        <h3>User Application </h3>
         <tr>
           <th>ID</th>
+          <th>name</th>
           <th>login</th>
           <th>pass</th>
-          <th>name</th>
+          <th>function</th>
         </tr>
         <tr ng-repeat="user in users">
-          <td>{{user.id}}</td>
-          <td>{{user.login}}</td>
-          <td>{{user.password}}</td>
-          <td>{{user.name}}</td>
-          <td><button ng-click="getDetail(user.id)">Get detail</button></td>
+          <td> {{user.id}}</td>
+          <td><a href="" ng-click="getDetail(user.id)">{{user.name}}</a></td>
+          <td><input type="text" ng-model="user.login" /></td>
+          <td><input type="text" ng-model="user.password" /></td>
+          <td><button ng-click="removeUser(user)">Delete</button></td>
+          <td><button ng-click="editUser(user)">Edit</button></td>
         </tr>
       </table>
     </div>
