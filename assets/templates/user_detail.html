@@ -46,7 +46,7 @@
             <div class="form-group">
               <label for="lotPrice" class="col-md-2 control-label">Price</label>
               <div class="col-md-6">
-                <input type="text" ng-model="lot.price" class="form-control" id="lotPrice" placeholder="Enter price">
+                <input type="number" ng-model="lot.price" class="form-control" id="lotPrice" placeholder="Enter price">
               </div>
             </div>
             <div class="form-group">
@@ -57,27 +57,40 @@
           </form>
         </div>
         <div class="row">
-          <table class="table">
-            <h2>User Lots </h2>
-            <tr>
-              <th>name</th>
-              <th>price</th>
-              <th>startDate</th>
-              <th>finishDate</th>
-              <th>step</th>
-              <th>state</th>
-              <th>comments</th>
-            </tr>
-            <tr ng-repeat="lot in lots">
-              <td>{{lot.name}}</td>
-              <td>{{lot.price}}</td>
-              <td>{{lot.startDate}}</td>
-              <td>{{lot.finishDate}}</td>
-              <td>{{lot.step}}</td>
-              <td>{{lot.state}}</td>
-              <td>{{lot.comments}}</td>
-            </tr>
-          </table>
+          <div class="form-group">
+            <div class="col-md-10">
+              <table class="table">
+                <h2>User Lots </h2>
+                <tr>
+                  <th>name</th>
+                  <th>price</th>
+                  <th>type</th>
+                  <th>startDate</th>
+                  <th>finishDate</th>
+                  <th>step</th>
+                  <th>state</th>
+                  <th>comments</th>
+                  <th>functions</th>
+                </tr>
+                <tr ng-repeat="lot in lots">
+                  <td><input type="text" ng-model="lot.name"/></td>
+                  <td><input type="number" ng-model="lot.price"/></td>
+                  <td><input type="text" ng-model="lot.type"/></td>
+                  <td>{{lot.startDate}}</td>
+                  <td><input type="text" ng-model="lot.finishDate"/></td>
+                  <td><input type="number" ng-model="lot.step"/></td>
+                  <td><input type="text" ng-model="lot.state"/></td>
+                  <td><input type="text" ng-model="lot.comments"/></td>
+                  <td>
+                    <button ng-click="removeLot(lot)">Delete</button>
+                  </td>
+                  <td>
+                    <button ng-click="editLot(lot)">Edit</button>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
