@@ -40,6 +40,9 @@
     "assert": "^1.4.1",
     "istanbul": "^0.4.5",
     "mocha": "^3.2.0",
-    "sinon": "^1.17.6"
+    "sinon": "^1.17.6",
+    "chai": "3.5.0",
+    "grunt-mocha-istanbul": "5.0.2",
+    "grunt-mocha-test" : "0.13.2"
   }
 }
