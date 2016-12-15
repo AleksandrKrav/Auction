@@ -31,11 +31,11 @@ describe('User model', function () {
       user.roles.should.equal('User');
     });
 
-    // after(function (cb) {
-    //   User.destroy(function (err) {
-    //     cb(err);
-    //   });
-    // });
+    after(function (cb) {
+      User.destroy(function (err) {
+        cb(err);
+      });
+    });
   });
 
   describe('#findAll', function () {
