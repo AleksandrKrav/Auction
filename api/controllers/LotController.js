@@ -4,6 +4,8 @@
  * @description :: Server-side logic for managing Lots
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
+/* globals Lot */
+'use strict';
 module.exports = {
   getLots: function (req, res) {
     Lot.find().populateAll().exec(function (err, lots) {

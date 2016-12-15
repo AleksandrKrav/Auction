@@ -1,3 +1,5 @@
+/* globals auApp */
+'use strict';
 auApp.service('LotService', function($http, $q) {
   return {
     'getLots': function() {
@@ -72,4 +74,5 @@ auApp.service('LotService', function($http, $q) {
       });
       return defer.promise;
     }
-  }});
+  };
+});

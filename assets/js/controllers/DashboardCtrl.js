@@ -1,3 +1,5 @@
+/* globals auApp */
+'use strict';
 auApp.controller('DashboardCtrl', ['$scope', '$routeParams', 'LotService', 'UserService',
   function ($scope, $routeParams, LotService, UserService) {
     $scope.lots = [];

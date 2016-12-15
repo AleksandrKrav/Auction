@@ -4,12 +4,13 @@
  * @description :: Server-side logic for managing users
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
-
+/* globals User */
+'use strict';
 module.exports = {
   getUsers: function(req, res) {
     User.find().exec(function(err, users) {
       if(err) throw err;
-      res.json(users)
+      res.json(users);
     });
   },
 
