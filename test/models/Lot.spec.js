@@ -20,7 +20,7 @@ describe('Lot model', function () {
         price: lotPrice,
         owner:"",
         startDate: new Date(),
-        state:"NEW"
+        state:'NEW'
       };
 
       User.create(userData, function (err, newUser) {
