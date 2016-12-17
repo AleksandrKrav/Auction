@@ -7,23 +7,23 @@ auApp.controller('LotCtrl', ['$scope', '$routeParams', 'LotService', 'UserServic
     $scope.showForm = false;
     $scope.lots = [];
 
-    LotService.getLots().then(function (response) {
-      console.log(response);
-      $scope.lots = response;
-    });
-    LotService.getLot(userID).then(function (response) {
-      console.log(response);
-      $scope.lots = response;
-    });
-    UserService.getUser(userID).then(function (response) {
-      console.log(response);
-      $scope.user = response;
-    });
+    if(userID){
+      UserService.getUser(userID).then(function (response) {
+        $scope.user = response;
+      });
+      LotService.getLotsByOwnerId(userID).then(function (response) {
+        $scope.lots = response;
+      });
+    } else {
+      LotService.getLots().then(function (response) {
+        $scope.lots = response;
+      });
+    }
 
     $scope.addLot = function () {
       var lotInfo = {
         userId: userID,
-        sabjectName: $scope.lot.sab.name,
+        lotType: $scope.lot.type,
         lotPrice: $scope.lot.price,
         lotName: $scope.lot.name
       };
@@ -41,21 +41,24 @@ auApp.controller('LotCtrl', ['$scope', '$routeParams', 'LotService', 'UserServic
     };
 
     $scope.removeLot = function (lot) {
-      console.log(lot);
       LotService.removeLot(lot).then(function (response) {
-
+        $scope.lots.splice($scope.lots.indexOf(lot), 1);
       });
     };
     $scope.makeLotActive = function (lot) {
-      console.log(lot);
       LotService.makeLotActive(lot).then(function (response) {
 
       });
     };
     $scope.makeLotInActive = function (lot) {
-      console.log(lot);
       LotService.makeLotInActive(lot).then(function (response) {
 
+      });
+    };
+
+    $scope.editLot = function(lot){
+      LotService.editLot(lot).then(function (response) {
+        console.log(response);
       });
     };
   }]);

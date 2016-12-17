@@ -35,5 +35,11 @@
     "url": "git://github.com/anonymous node/sails user/Auction.git"
   },
   "author": "anonymous node/sails user",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0",
+    "sinon": "^1.17.6"
+  }
 }

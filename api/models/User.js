@@ -24,8 +24,8 @@ module.exports = {
       type: 'string',
       required: true,
       enum: ['Admin', 'User']
-    }
-    ,lots: {
+    },
+    lots: {
       collection: 'lot',
       via: 'users'
       //dominant: true

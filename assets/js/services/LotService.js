@@ -19,7 +19,6 @@ auApp.service('LotService', function($http, $q) {
       return defer.promise;
     },
     'addLot': function(lot) {
-      console.log(lot);
       var defer = $q.defer();
       $http.post('/lot/addLot', lot).success(function(resp){
         defer.resolve(resp);
@@ -39,7 +38,6 @@ auApp.service('LotService', function($http, $q) {
       return defer.promise;
     },
     'removeLot': function(lot) {
-      console.log(lot);
       var defer = $q.defer();
       $http.post('/lot/removeLot', lot).success(function(resp){
         defer.resolve(resp);
@@ -49,7 +47,6 @@ auApp.service('LotService', function($http, $q) {
       return defer.promise;
     },
     'makeLotActive': function(lot) {
-      console.log(lot);
       var defer = $q.defer();
       $http.post('/lot/makeLotActive', lot).success(function(resp){
         defer.resolve(resp);
@@ -59,9 +56,26 @@ auApp.service('LotService', function($http, $q) {
       return defer.promise;
     },
     'makeLotInActive': function(lot) {
-      console.log(lot);
       var defer = $q.defer();
       $http.post('/lot/makeLotInActive', lot).success(function(resp){
+        defer.resolve(resp);
+      }).error( function(err) {
+        defer.reject(err);
+      });
+      return defer.promise;
+    },
+    'getLotsByOwnerId': function(owner_id){
+      var defer = $q.defer();
+      $http.get('/lot/getLotsByOwnerId', {params: {id: owner_id}}).success(function(resp){
+        defer.resolve(resp);
+      }).error( function(err) {
+        defer.reject(err);
+      });
+      return defer.promise;
+    },
+    'editLot': function(lot){
+      var defer = $q.defer();
+      $http.post('/lot/editLot', lot).success(function(resp){
         defer.resolve(resp);
       }).error( function(err) {
         defer.reject(err);

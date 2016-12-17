@@ -12,16 +12,23 @@ module.exports = {
       type: 'string',
       required: true
     },
+    type: {
+      type: 'string',
+      required: true
+    },
     price: {
       type: 'integer',
       required: true
     },
+    owner: {
+      model: 'user'
+    },
+    winner: {
+      model: 'user'
+    },
     users: {
       collection: 'user',
       via: 'lots'
-    },
-    sabject: {
-      model: 'sabject'
     },
     startDate: {
       type: 'date',
