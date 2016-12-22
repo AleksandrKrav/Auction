@@ -41,15 +41,60 @@ describe('Lot model', function () {
       lot.type.should.equal('some');
       lot.price.should.equal(lotPrice);
     });
+    after(function (cb) {
+      Lot.destroy({id: lot.id},function (err) {
+        User.destroy({id: user.id},function (err) {
+          cb(err);
+        });
+      });
+    });
   });
 
   describe('#findAllLots', function () {
+    var lot;
+    var user;
+    var lotPrice  = 123;
+    before(function (cb) {
+      var userData = {
+        name: "myname",
+        login: "mylogin",
+        password: '123',
+        roles: 'User'
+      };
+      var lotData = {
+        name:"lotName",
+        type:"some",
+        price: lotPrice,
+        owner:"",
+        startDate: new Date(),
+        state:'NEW'
+      };
+
+      User.create(userData, function (err, newUser) {
+        if (err) return cb(err);
+        user = newUser;
+        lotData.owner = newUser.id;
+        Lot.create(lotData,function (err, newLot) {
+          if (err) return cb(err);
+          lot = newLot;
+          cb();
+        })
+      });
+
+    });
     it("must not be empty lot list", function (cb) {
 
       Lot.find(function (err, results) {
         if (err) return cb(err);
         assert.notEqual(results.length, 0);
         cb();
+      });
+    });
+    after(function (cb) {
+      Lot.destroy({id: lot.id},function (err) {
+        User.destroy({id: user.id},function (err) {
+          cb(err);
+        });
       });
     });
   });
@@ -99,8 +144,8 @@ describe('Lot model', function () {
     });
 
     after(function (cb) {
-      User.destroy(function (err) {
-        Lot.destroy(function (err) {
+      Lot.destroy({id: lot.id},function (err) {
+        User.destroy({id: user.id},function (err) {
           cb(err);
         });
       });
@@ -144,6 +189,11 @@ describe('Lot model', function () {
         if (err) return cb(err);
 
         cb();
+      });
+    });
+    after(function (cb) {
+      User.destroy({id: user.id},function (err) {
+        cb(err);
       });
     });
   });
