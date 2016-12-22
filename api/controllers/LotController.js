@@ -24,15 +24,6 @@ module.exports = {
 
   },
 
-  setBet: function (req, res) {
-    var bet = (req.body) ? req.body : undefined;
-
-    Lot.update({id: bet.id}, {/*users*/price:bet.price}).exec(function (err, bet) {
-      if (err) throw err;
-      res.json(bet);
-    });
-  },
-
   addLot: function (req, res) {
 
     var lot = (req.body) ? req.body : undefined;
@@ -53,22 +44,7 @@ module.exports = {
     });
   },
 
-  editLot: function(req, resp){
-    var lot = (req.body) ? req.body : undefined;
 
-    Lot.update({id: lot.id}, {
-      name: lot.name,
-      price: lot.price,
-      type: lot.type,
-      finishDate: lot.finishDate,
-      step: lot.step,
-      state: lot.state,
-      comments: lot.comments
-    }).exec(function (err, lot) {
-      if (err) throw  err;
-      resp.json(lot);
-    });
-  },
 
   removeLot: function (req, res) {
     var lot = (req.body) ? req.body : undefined;
@@ -80,22 +56,6 @@ module.exports = {
 
   },
 
-  makeLotActive: function (req, res) {
-    var lot = (req.body) ? req.body : undefined;
 
-    Lot.update({id: lot.id}, {state:"ACTIVE"}).exec(function (err, bet) {
-      if (err) throw err;
-      res.json(bet);
-    });
-  },
-
-  makeLotInActive: function (req, res) {
-    var lot = (req.body) ? req.body : undefined;
-
-    Lot.update({id: lot.id}, {state:"INACTIVE"}).exec(function (err, bet) {
-      if (err) throw err;
-      res.json(bet);
-    });
-  }
 };
 

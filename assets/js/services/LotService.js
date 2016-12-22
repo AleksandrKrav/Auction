@@ -29,6 +29,16 @@ auApp.service('LotService', function($http, $q) {
       });
       return defer.promise;
     },
+    'getLot': function(user_id){
+      console.log(user_id);
+      var defer = $q.defer();
+      $http.post('/lot/getLot', ({user_id : user_id})).success(function(resp){
+        defer.resolve(resp);
+      }).error( function(err) {
+        defer.reject(err);
+      });
+      return defer.promise;
+    },
     'removeLot': function(lot) {
       var defer = $q.defer();
       $http.post('/lot/removeLot', lot).success(function(resp){
