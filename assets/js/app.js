@@ -19,5 +19,5 @@ auApp.config(['$routeProvider',
     }).otherwise({
       redirectTo: '/',
       caseInsensitiveMatch: true
-    })
+    });
   }]);

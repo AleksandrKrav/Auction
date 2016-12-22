@@ -1,3 +1,5 @@
+/* globals auApp */
+'use strict';
 auApp.controller('UserCtrl', ['$scope', '$rootScope', '$location', 'UserService',
   function($scope, $rootScope, $location, UserService) {
 
@@ -11,7 +13,6 @@ auApp.controller('UserCtrl', ['$scope', '$rootScope', '$location', 'UserService'
     var user = $scope.user;
 
     UserService.addUser(user).then(function(response) {
-      debugger;
       $location.path('/dashboard');
     });
   };

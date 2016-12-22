@@ -1,6 +1,8 @@
 /**
  * Created by Aleksandr on 19.11.2016.
  */
+/* globals auApp */
+'use strict';
 auApp.controller('LotCtrl', ['$scope', '$routeParams', 'LotService', 'UserService',
   function ($scope, $routeParams, LotService, UserService) {
     var userID = $routeParams.id;

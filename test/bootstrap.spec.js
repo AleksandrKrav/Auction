@@ -1,5 +1,5 @@
 var sails = require('sails');
-var _ = require('lodash');
+//var _ = require('lodash');
 
 global.chai = require('chai');
 global.should = chai.should();
@@ -36,7 +36,7 @@ before(function (done) {
 
 after(function (done) {
 // here you can clear fixtures, etc.
-  if (sails && _.isFunction(sails.lower)) {
+  //if (sails && _.isFunction(sails.lower)) {
     sails.lower(done);
-  }
+  //}
 });
