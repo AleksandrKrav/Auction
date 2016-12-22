@@ -3,7 +3,7 @@
  */
 require('./../bootstrap.spec');
 describe('Lot model', function () {
-  describe('#create', function () {
+  describe('#createLot', function () {
     var lot;
     var user;
     var lotPrice  = 123;
@@ -43,7 +43,7 @@ describe('Lot model', function () {
     });
   });
 
-  describe('#findAll', function () {
+  describe('#findAllLots', function () {
     it("must not be empty lot list", function (cb) {
 
       Lot.find(function (err, results) {
@@ -103,6 +103,47 @@ describe('Lot model', function () {
         Lot.destroy(function (err) {
           cb(err);
         });
+      });
+    });
+  });
+  describe('#deleteLot', function () {
+    var lot;
+    var user;
+    var lotPrice  = 123;
+    before(function (cb) {
+      var userData = {
+        name: "myname",
+        login: "mylogin",
+        password: '123',
+        roles: 'User'
+      };
+      var lotData = {
+        name:"lotName",
+        type:"some",
+        price: lotPrice,
+        owner:"",
+        startDate: new Date(),
+        state:'NEW'
+      };
+
+      User.create(userData, function (err, newUser) {
+        if (err) return cb(err);
+        user = newUser;
+        lotData.owner = newUser.id;
+        Lot.create(lotData,function (err, newLot) {
+          if (err) return cb(err);
+          lot = newLot;
+          cb();
+        })
+      });
+
+    });
+
+    it("delete lot", function (cb) {
+      Lot.destroy({id: lot.id}, function (err) {
+        if (err) return cb(err);
+
+        cb();
       });
     });
   });
