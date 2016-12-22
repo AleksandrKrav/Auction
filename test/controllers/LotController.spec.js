@@ -54,7 +54,7 @@ describe('LotController', function () {
       request.agent(sails.hooks.http.app)
         .post('/lot/addLot')
         .set('Accept', 'application/json')
-        .send({"lotName":"lotName","lotType":"some","lotPrice":lotPrice,"userId":ownerId})
+        .send({"lotName": "lotName", "lotType": "some", "lotPrice": lotPrice, "userId": ownerId})
         .expect('Content-Type', /json/)
         .expect(200)
         .end(function (err, result) {
@@ -73,7 +73,7 @@ describe('LotController', function () {
   describe('#findByOwnerId()', function () {
     var lot;
     var user;
-    var lotPrice  = 123;
+    var lotPrice = 123;
     before(function (cb) {
       var userData = {
         name: "myname",
@@ -82,19 +82,19 @@ describe('LotController', function () {
         roles: 'User'
       };
       var lotData = {
-        name:"lotName",
-        type:"some",
+        name: "lotName",
+        type: "some",
         price: lotPrice,
-        owner:"",
+        owner: "",
         startDate: new Date(),
-        state:'NEW'
+        state: 'NEW'
       };
 
       User.create(userData, function (err, newUser) {
         if (err) return cb(err);
         user = newUser;
         lotData.owner = newUser.id;
-        Lot.create(lotData,function (err, newLot) {
+        Lot.create(lotData, function (err, newLot) {
           if (err) return cb(err);
           lot = newLot;
           cb();
@@ -123,7 +123,7 @@ describe('LotController', function () {
   describe('#deleteLot()', function () {
     var lot;
     var user;
-    var lotPrice  = 123;
+    var lotPrice = 123;
     before(function (cb) {
       var userData = {
         name: "myname",
@@ -132,30 +132,28 @@ describe('LotController', function () {
         roles: 'User'
       };
       var lotData = {
-        name:"lotName",
-        type:"some",
+        name: "lotName",
+        type: "some",
         price: lotPrice,
-        owner:"",
         startDate: new Date(),
-        state:'NEW'
+        state: 'NEW'
       };
 
       User.create(userData, function (err, newUser) {
         if (err) return cb(err);
         user = newUser;
         lotData.owner = newUser.id;
-        Lot.create(lotData,function (err, newLot) {
+        Lot.create(lotData, function (err, newLot) {
           if (err) return cb(err);
           lot = newLot;
           cb();
         })
       });
-
     });
     it('should delete lot by id ', function (done) {
       request.agent(sails.hooks.http.app)
         .post('/lot/removeLot')
-        .send({"id":lot.id})
+        .send({"id": lot.id})
         .set('Accept', 'application/json')
         .expect('Content-Type', /json/)
         .expect(200)
@@ -164,7 +162,6 @@ describe('LotController', function () {
             return done(err);
           } else {
             return done(null, result.text);
-
           }
         });
     });

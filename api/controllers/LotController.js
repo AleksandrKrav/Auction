@@ -53,8 +53,7 @@ module.exports = {
       if (err) throw err;
       res.json(lot);
     });
-
-  },
+  }
 
 
 };
