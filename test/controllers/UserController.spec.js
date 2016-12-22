@@ -8,6 +8,21 @@ require('./../bootstrap.spec');
 describe('UserController', function () {
 
   describe('#getUsers()', function () {
+    var tempUser;
+    before(function (cb) {
+      var userData = {
+        name: "myname4",
+        login: "mylogin",
+        password: '123',
+        roles: 'User'
+      };
+      User.create(userData, function (err, newUser) {
+        if (err) return cb(err);
+        tempUser = newUser;
+        cb();
+      });
+    });
+
     it('should return users', function (done) {
       request.agent(sails.hooks.http.app)
         .get('/user/getUsers')
