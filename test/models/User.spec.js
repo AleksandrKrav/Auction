@@ -102,8 +102,9 @@ describe('User model', function () {
       });
     })
 
-    it("must delete user", function () {
-      User.destroy(function (err) {
+    it("must delete user", function (cb) {
+      User.destroy({id: tempUser.id}, function (err) {
+        if (err) return cb(err);
         cb(err);
       });
     });
