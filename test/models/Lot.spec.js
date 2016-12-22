@@ -106,55 +106,5 @@ describe('Lot model', function () {
       });
     });
   });
-  describe('#makeActive', function () {
-    var lot;
-    var user;
-    var lotPrice  = 123;
-    before(function (cb) {
-      var userData = {
-        name: "myname",
-        login: "mylogin",
-        password: '123',
-        roles: 'User'
-      };
-      var lotData = {
-        name:"lotName",
-        type:"some",
-        price:lotPrice,
-        owner:"",
-        startDate: new Date(),
-        state:"NEW"
-      };
 
-      User.create(userData, function (err, newUser) {
-        if (err) return cb(err);
-        user = newUser;
-        lotData.owner = newUser.id;
-        Lot.create(lotData,function (err, newLot) {
-          if (err) return cb(err);
-          lot = newLot;
-          cb();
-        })
-      });
-
-    });
-    it("equal state to ACTIVE", function (cb) {
-      Lot.update({id: lot.id},{state:"ACTIVE"}, function (err, result) {
-        if (err) return cb(err);
-        assert.equal(result.name,'lalka');
-        assert.equal(result.state,'ACTIVE');
-        expect(result).to.be.an('object');
-        //result.should.eql(user);
-        cb();
-      });
-    });
-
-    after(function (cb) {
-      User.destroy(function (err) {
-        Lot.destroy(function (err) {
-          cb(err);
-        });
-      });
-    });
-  });
 });
