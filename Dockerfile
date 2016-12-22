@@ -17,5 +17,3 @@ RUN npm install
 COPY . /app
 
 EXPOSE 1337
-
-CMD ["sails", "lift"]

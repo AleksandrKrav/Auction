@@ -1,4 +1,17 @@
-db:
- image:mongo
- ports:
- - "27017:27017"
+
+version: '2'
+services:
+  auctiondb:
+    image: 'mongo:3'
+    ports:
+      - "27017:27017"
+  server:
+    build: .
+    links:
+      - "auctiondb"
+    ports:
+      - "1337:1337"
+    command: "sails lift"
+    depends_on:
+      - auctiondb
+    restart: always
