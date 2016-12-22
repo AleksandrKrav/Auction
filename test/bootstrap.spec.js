@@ -25,7 +25,7 @@ before(function (done) {
     },
     connections: {
       mongodb: {
-        adapter: 'sails-mongo'
+        adapter: 'sails-disk'
       }
     }
   }, function (err, server) {

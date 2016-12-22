@@ -9,7 +9,7 @@ describe('User model', function () {
     var user;
     before(function (cb) {
       var userData = {
-        name: "myname",
+        name: "myname1",
         login: "mylogin",
         password: '123',
         roles: 'User'
@@ -24,17 +24,17 @@ describe('User model', function () {
     });
 
     it("must create temp user", function () {
-      user.name.should.equal('myname');
+      user.name.should.equal('myname1');
       user.login.should.equal('mylogin');
       user.password.should.equal('123');
       user.roles.should.equal('User');
     });
 
-    // after(function (cb) {
-    //   User.destroy(function (err) {
-    //     cb(err);
-    //   });
-    // });
+    after(function (cb) {
+      User.destroy({id: user.id}, function (err) {
+        cb(err);
+      });
+    });
   });
 
   describe('#findAll', function () {
@@ -52,7 +52,7 @@ describe('User model', function () {
     var user;
     before(function (cb) {
       var userData = {
-        name: "myname",
+        name: "myname2",
         login: "mylogin",
         password: '123',
         roles: 'User'
@@ -68,7 +68,7 @@ describe('User model', function () {
     it("equal new object with exist", function (cb) {
       User.findOne({id: user.id}, function (err, result) {
         if (err) return cb(err);
-        result.name.should.equal('myname');
+        result.name.should.equal('myname2');
         result.login.should.equal('mylogin');
         result.password.should.equal('123');
         result.roles.should.equal('User');
@@ -79,7 +79,7 @@ describe('User model', function () {
     });
 
     after(function (cb) {
-      User.destroy(function (err) {
+      User.destroy({id: user.id},function (err) {
         cb(err);
       });
     });
@@ -90,7 +90,7 @@ describe('User model', function () {
     var tempUser;
     before(function (cb) {
       var userData = {
-        name: "myname",
+        name: "myname3",
         login: "mylogin",
         password: '123',
         roles: 'User'
@@ -100,7 +100,7 @@ describe('User model', function () {
         tempUser = newUser;
         cb();
       });
-    })
+    });
 
     it("must delete user", function (cb) {
       User.destroy({id: tempUser.id}, function (err) {
