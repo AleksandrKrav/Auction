@@ -23,11 +23,13 @@
     "include-all": "^1.0.0",
     "rc": "1.0.1",
     "sails": "~0.12.9",
-    "sails-disk": "~0.10.9"
+    "sails-disk": "~0.10.9",
+    "grunt-contrib-jshint": "~1.1.0"
   },
   "scripts": {
     "debug": "node debug app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "grunt test"
   },
   "main": "app.js",
   "repository": {
@@ -40,6 +42,9 @@
     "assert": "^1.4.1",
     "istanbul": "^0.4.5",
     "mocha": "^3.2.0",
-    "sinon": "^1.17.6"
+    "sinon": "^1.17.6",
+    "chai": "3.5.0",
+    "grunt-mocha-istanbul": "5.0.2",
+    "grunt-mocha-test" : "0.13.2"
   }
 }

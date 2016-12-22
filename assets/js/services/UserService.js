@@ -1,3 +1,5 @@
+/* globals auApp */
+'use strict';
 auApp.service('UserService', function($http, $q) {
   return {
     'getUsers': function() {
@@ -10,7 +12,6 @@ auApp.service('UserService', function($http, $q) {
       return defer.promise;
     },
     'getUser': function(user_id){
-      console.log(user_id);
       var defer = $q.defer();
       $http.get('/user/getUser', ( {params : {user_id : user_id}})).success(function(resp){
         defer.resolve(resp);
@@ -20,7 +21,6 @@ auApp.service('UserService', function($http, $q) {
       return defer.promise;
     },
     'addUser': function(user) {
-      console.log(user);
       var defer = $q.defer();
       $http.post('/user/addUser', user).success(function(resp){
         defer.resolve(resp);
@@ -30,7 +30,6 @@ auApp.service('UserService', function($http, $q) {
       return defer.promise;
     },
     'removeUser': function(user) {
-      console.log(user);
       var defer = $q.defer();
       $http.post('/user/removeUser', user).success(function(resp){
         defer.resolve(resp);
@@ -40,7 +39,6 @@ auApp.service('UserService', function($http, $q) {
       return defer.promise;
     },
     'editUser' : function(user){
-      console.log(user);
       var defer = $q.defer();
       $http.post('/user/editUser', user).success(function(resp){
         defer.resolve(resp);
@@ -49,4 +47,5 @@ auApp.service('UserService', function($http, $q) {
       });
       return defer.promise;
     }
-  }});
+  };
+});
