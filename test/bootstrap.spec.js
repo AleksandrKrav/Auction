@@ -1,5 +1,6 @@
 var sails = require('sails');
 //var _ = require('lodash');
+global.request = require('supertest');
 
 global.chai = require('chai');
 global.should = chai.should();
@@ -24,7 +25,7 @@ before(function (done) {
     },
     connections: {
       mongodb: {
-        adapter: 'sails-disk'
+        adapter: 'sails-mongo'
       }
     }
   }, function (err, server) {
