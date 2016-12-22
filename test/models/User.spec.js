@@ -3,7 +3,6 @@
  */
 // Here is were we init our 'sails' environment and application
 require('./../bootstrap.spec');
-//var User = require('../../api/models/User');
 
 describe('User model', function () {
   describe('#create', function () {
@@ -50,7 +49,6 @@ describe('User model', function () {
   });
 
   describe('#findById', function () {
-
     var user;
     before(function (cb) {
       var userData = {
@@ -87,4 +85,28 @@ describe('User model', function () {
     });
   });
 
+  describe('#destroy', function () {
+
+    var tempUser;
+    before(function (cb) {
+      var userData = {
+        name: "myname",
+        login: "mylogin",
+        password: '123',
+        roles: 'User'
+      };
+      User.create(userData, function (err, newUser) {
+        if (err) return cb(err);
+        tempUser = newUser;
+        cb();
+      });
+    })
+
+    it("must delete user", function () {
+      User.destroy(function (err) {
+        cb(err);
+      });
+    });
+
+  });
 });
