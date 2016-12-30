@@ -1,19 +1,10 @@
 FROM node:argon
-
-# Install Sails globally
-RUN npm install -g sails
-
-# Create app directory
-RUN mkdir -p /app
-# Change Work directory to app
-WORKDIR /app
-
-# Install app dependencies
-COPY package.json /app/
+RUN mkdir -p /home/apps/auction
+WORKDIR /home/apps/auction
+COPY package.json /home/apps/auction
+RUN npm install sails -g
+RUN npm install sails
+RUN npm install grunt -g
+RUN npm install grunt
 RUN npm install
-
-
-# Bundle app source
-COPY . /app
-
-EXPOSE 1337
+COPY . /home/apps/auction

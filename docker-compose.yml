@@ -11,7 +11,7 @@ services:
       - "auctiondb"
     ports:
       - "1337:1337"
-    command: "sails lift"
+    command: bash -c "bash ./wait-for-it.sh auctiondb:27017 -t 300 && sails lift"
     depends_on:
       - auctiondb
     restart: always

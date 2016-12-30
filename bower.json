@@ -6,7 +6,7 @@
   "description": "",
   "main": "",
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/AleksandrKrav/Auction",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -21,6 +21,7 @@
     "angular-mocks": "1.5.8",
     "angular-moment": "1.0.0",
     "angular-route": "1.5.8",
+    "angular-bootstrap": "*",
     "jquery": "3.1.1"
   }
 }
