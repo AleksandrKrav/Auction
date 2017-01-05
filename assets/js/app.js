@@ -3,7 +3,7 @@
 var auApp = angular.module('auApp', ['ngRoute', 'ui.bootstrap']);
 
 auApp.config(['$routeProvider',
-  function($routeProvider) {
+  function ($routeProvider) {
     $routeProvider.when('/', {
       templateUrl: '/templates/login.html',
       controller: 'UserCtrl'
@@ -21,3 +21,10 @@ auApp.config(['$routeProvider',
       caseInsensitiveMatch: true
     });
   }]);
+
+// auApp.config(function ($locationProvider) {
+//   $locationProvider.html5Mode({
+//     enabled: true,
+//     requireBase: false
+//   });
+// });

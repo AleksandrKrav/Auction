@@ -118,7 +118,6 @@ describe('LotController', function () {
           }
         });
     });
-
   });
   describe('#deleteLot()', function () {
     var lot;
@@ -165,6 +164,5 @@ describe('LotController', function () {
           }
         });
     });
-
   });
 });
