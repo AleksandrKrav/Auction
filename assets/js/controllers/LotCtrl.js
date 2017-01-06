@@ -5,7 +5,6 @@
 'use strict';
 auApp.controller('LotCtrl', ['$scope', '$routeParams', 'LotService', 'UserService',
   function ($scope, $routeParams, LotService, UserService) {
-    debugger;
     var userID = $routeParams.id;
     $scope.showForm = false;
     $scope.lots = [];
