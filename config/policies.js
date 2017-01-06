@@ -26,11 +26,18 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  '*': true,
-
-  'PostController': {
-    '*': 'isAuthenticated'
+  '*': 'isAuthenticated',
+  'AuthController': {
+    '*': true
+  },
+  'LotController': {
+    '*': 'isAuthenticated',
+    'getLots' : true
   }
+  //
+  // 'UserController': {
+  //   '*': 'isAuthenticated'
+  // }
 
 
   /***************************************************************************

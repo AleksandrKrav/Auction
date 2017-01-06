@@ -6,7 +6,13 @@
  */
 /* globals User */
 'use strict';
+
 module.exports = {
+
+  index: function(req, res){
+    res.view();
+  },
+
   getUsers: function(req, res) {
     User.find().exec(function(err, users) {
       if(err) throw err;

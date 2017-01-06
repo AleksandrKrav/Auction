@@ -7,6 +7,10 @@
 /* globals Lot */
 'use strict';
 module.exports = {
+  index: function(req, res){
+    res.view();
+  },
+
   getLots: function (req, res) {
     Lot.find().populateAll().exec(function (err, lots) {
       if (err) throw err;
