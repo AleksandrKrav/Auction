@@ -2,7 +2,6 @@
 'use strict';
 auApp.controller('UserCtrl', ['$scope', '$rootScope', '$location', 'UserService',
   function($scope, $rootScope, $location, UserService) {
-
   $scope.users = [];
 
   UserService.getUsers().then(function(response) {
@@ -13,7 +12,7 @@ auApp.controller('UserCtrl', ['$scope', '$rootScope', '$location', 'UserService'
     var user = $scope.user;
 
     UserService.addUser(user).then(function(response) {
-      $location.path('/dashboard');
+      $location.path('/');
     });
   };
 

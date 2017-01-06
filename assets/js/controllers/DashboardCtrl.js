@@ -5,7 +5,6 @@ auApp.controller('DashboardCtrl', ['$scope', '$routeParams', 'LotService', 'User
     $scope.lots = [];
 
     LotService.getLots().then(function (response) {
-      console.log(response);
       $scope.lots = response;
     });
   }]);

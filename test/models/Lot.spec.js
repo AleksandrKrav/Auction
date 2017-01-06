@@ -9,8 +9,8 @@ describe('Lot model', function () {
     var lotPrice  = 123;
     before(function (cb) {
       var userData = {
-        name: "myname",
-        login: "mylogin",
+        name: "myname4",
+        login: "mylogin4",
         password: '123',
         roles: 'User'
       };
@@ -56,8 +56,8 @@ describe('Lot model', function () {
     var lotPrice  = 123;
     before(function (cb) {
       var userData = {
-        name: "myname",
-        login: "mylogin",
+        name: "myname5",
+        login: "mylogin5",
         password: '123',
         roles: 'User'
       };
@@ -105,8 +105,8 @@ describe('Lot model', function () {
     var lotPrice  = 123;
     before(function (cb) {
       var userData = {
-        name: "myname",
-        login: "mylogin",
+        name: "myname6",
+        login: "mylogin6",
         password: '123',
         roles: 'User'
       };
@@ -157,8 +157,8 @@ describe('Lot model', function () {
     var lotPrice  = 123;
     before(function (cb) {
       var userData = {
-        name: "myname",
-        login: "mylogin",
+        name: "myname7",
+        login: "mylogin7",
         password: '123',
         roles: 'User'
       };

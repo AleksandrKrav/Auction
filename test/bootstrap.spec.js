@@ -21,7 +21,7 @@ before(function (done) {
     },
     models: {
       connection: 'mongodb',
-      migrate: 'alter'
+      migrate: 'drop'
     },
     connections: {
       mongodb: {
