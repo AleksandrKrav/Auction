@@ -2,8 +2,26 @@
 
 var auApp = angular.module('auApp', ['ngRoute', 'ui.bootstrap']);
 
-auApp.config(['$routeProvider',
-  function ($routeProvider) {
+auApp.config(['$routeProvider', '$httpProvider',
+  function ($routeProvider, $httpProvider) {
+
+    var exponentialInterval = 3000;
+    $httpProvider.interceptors.push(function($q, $timeout, $injector) {
+      return {
+        'responseError': function(responseError) {
+          console.log('responseError', responseError);
+          if(responseError.status == -1) {
+            $timeout(function(){
+              var $http = $injector.get('$http');
+              $http(responseError.config);
+              exponentialInterval *= 2;
+            }, exponentialInterval);
+          } else {
+            return responseError;
+          }
+        }
+      };
+    });
     $routeProvider
       .when('/', {
         templateUrl: '/templates/dashboard.html',
@@ -18,7 +36,7 @@ auApp.config(['$routeProvider',
         controller: 'UserCtrl'
       })
       .when('/signup', {
-
+        templateUrl: '/views/login.ejs',
       })
       .when('/login', {
 

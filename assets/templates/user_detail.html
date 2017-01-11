@@ -1,98 +1,126 @@
-<div class="container" ng-controller="LotCtrl">
-  <div class="row">
-    <div class="form-group">
-      <div class="row">
-        <div class="form-horizontal">
-          <h2>{{user.name}} information</h2>
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Login</label>
-            <div class="col-sm-10">
-              <p class="form-control-static">{{user.login}}</p>
+<header>
+<div class="header-content">
+  <div class="header-content-inner">
+    <div class="container" ng-controller="LotCtrl">
+      <div class="information"><div class="row">
+        <div class="form-group">
+          <div class="row">
+            <div class="form-horizontal">
+              <h2>{{user.name}} information</h2>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">Login</label>
+                <div class="col-sm-8">
+                  <p class="form-control-static">{{user.login}}</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">Password</label>
+                <div class="col-sm-8">
+                  <p class="form-control-static">{{user.password}}</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">Role</label>
+                <div class="col-sm-8">
+                  <p class="form-control-static">{{user.roles}}</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-offset-0 col-md-12 ">
+                  <button class="btn btn-default" ng-click="showForm = true">Add lot for auction?</button>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Password</label>
-            <div class="col-sm-10">
-              <p class="form-control-static">{{user.password}}</p>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Role</label>
-            <div class="col-sm-10">
-              <p class="form-control-static">{{user.roles}}</p>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-              <button class="btn btn-default" ng-click="showForm = true">Add lot for auction?</button>
-            </div>
-          </div>
-        </div>
-        <div class="row">
+            <div class="row">
 
-          <form ng-show="showForm" class="form-horizontal" role="form">
-            <div class="form-group">
-              <label for="lotType" class="col-md-2 control-label">Type</label>
-              <div class="col-md-6">
-                <input type="text" ng-model="lot.type" class="form-control" id="lotType" placeholder="Enter type">
-              </div>
+              <form ng-show="showForm" class="form-horizontal" role="form">
+                <div class="form-group">
+                  <label for="lotType" class="col-md-4 control-label">Type</label>
+                  <div class="col-md-4">
+                    <input type="text" ng-model="lot.type" class="form-control" id="lotType" placeholder="Enter type">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="lotName" class="col-md-4 control-label">Name</label>
+                  <div class="col-md-4">
+                    <input type="text" ng-model="lot.name" class="form-control" id="lotName" placeholder="Enter name">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="lotPrice" class="col-md-4 control-label">Price</label>
+                  <div class="col-md-4">
+                    <input type="number" ng-model="lot.price" class="form-control" id="lotPrice"
+                           placeholder="Enter price">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-offset-0 col-md-12">
+                    <button class="btn btn-default" ng-click="addLot()">Add Lot</button>
+                  </div>
+                </div>
+              </form>
             </div>
-            <div class="form-group">
-              <label for="lotName" class="col-md-2 control-label">Name</label>
-              <div class="col-md-6">
-                <input type="text" ng-model="lot.name" class="form-control" id="lotName" placeholder="Enter name">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="lotPrice" class="col-md-2 control-label">Price</label>
-              <div class="col-md-6">
-                <input type="number" ng-model="lot.price" class="form-control" id="lotPrice" placeholder="Enter price">
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="col-md-offset-2 col-md-10">
-                <button class="btn btn-default" ng-click="addLot()">Add Lot</button>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="row">
-          <div class="form-group">
-            <div class="col-md-10">
-              <table class="table">
-                <h2>User Lots </h2>
-                <tr>
-                  <th>name</th>
-                  <th>price</th>
-                  <th>type</th>
-                  <th>startDate</th>
-                  <th>finishDate</th>
-                  <th>step</th>
-                  <th>state</th>
-                  <th>comments</th>
-                  <th>functions</th>
-                </tr>
-                <tr ng-repeat="lot in lots">
-                  <td><input type="text" ng-model="lot.name"/></td>
-                  <td><input type="number" ng-model="lot.price"/></td>
-                  <td><input type="text" ng-model="lot.type"/></td>
-                  <td>{{lot.startDate}}</td>
-                  <td><input type="text" ng-model="lot.finishDate"/></td>
-                  <td><input type="number" ng-model="lot.step"/></td>
-                  <td><input type="text" ng-model="lot.state"/></td>
-                  <td><input type="text" ng-model="lot.comments"/></td>
-                  <td>
-                    <button ng-click="removeLot(lot)">Delete</button>
-                  </td>
-                  <td>
-                    <button ng-click="editLot(lot)">Edit</button>
-                  </td>
-                </tr>
-              </table>
-            </div>
+            <!--<div class="row">-->
+            <!--<div class="form-group">-->
+            <!--<div class="col-md-10">-->
+
           </div>
-        </div>
+          <!--</div>-->
+          <!--</div>-->
+          <!--</div>-->
+        </div></div>
+
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
+</header>
+<section class="bg-primary" id="about">
+  <div class="container">
+    <div class="row">
+      <!--<div class="col-lg-8 col-lg-offset-2 text-center">-->
+        <h2 class="section-heading">{{user.name}} lots</h2>
+        <hr class="light">
+
+        <table class="table table-inverse">
+
+          <thead>
+          <tr>
+            <th>name</th>
+            <th>price</th>
+            <th>type</th>
+            <th>startDate</th>
+            <th>finishDate</th>
+            <th>step</th>
+            <th>state</th>
+            <!--<th>comments</th>-->
+            <th>functions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="lot in lots">
+            <td><input type="text" class="form-control col-lg-1 col-md-1" ng-model="lot.name"/></td>
+            <td><input type="number" class="form-control col-lg-1 col-md-1" ng-model="lot.price"/></td>
+            <td><input type="text" class="form-control col-lg-1 col-md-1" ng-model="lot.type"/></td>
+            <td > {{lot.startDate}}</td>
+            <td><input type="text" class="form-control col-lg-1 col-md-1" ng-model="lot.finishDate"/></td>
+            <td><input type="number" class="form-control col-lg-1 col-md-1" ng-model="lot.step"/></td>
+            <td><input type="text" class="form-control col-lg-1 col-md-1" ng-model="lot.state"/></td>
+            <!--<td><input type="text" class="form-control col-lg-1 col-md-1" ng-model="lot.comments"/></td>-->
+            <td>
+              <button class="btn btn-danger col-ls-1" ng-click="removeLot(lot)">Delete</button>
+            </td>
+            <td>
+              <button  class="btn btn-success col-ls-1"   ng-click="editLot(lot)">Edit</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
-</div>
+</section>
+

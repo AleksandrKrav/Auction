@@ -1,39 +1,51 @@
-<div class="container" ng-controller="LotCtrl">
-  <div class="row">
-    <div class="form-group">
-      <table class="table">
-        <h3>Lots list</h3>
-        <tr>
-          <th>ID</th>
-          <th>name</th>
-          <th>startDate</th>
-          <th>finishDate</th>
-          <th>step</th>
-          <th>state</th>
-          <th>comments</th>
-          <th>owner</th>
-          <th>winner</th>
-          <th>users</th>
-        </tr>
-        <tr ng-repeat="lot in lots">
-          <td>{{lot.id}}</td>
-          <td>{{lot.name}}</td>
-          <td>{{lot.startDate}}</td>
-          <td>{{lot.finishDate}}</td>
-          <td>{{lot.step}}</td>
-          <td>{{lot.state}}</td>
-          <td>{{lot.comments}}</td>
-          <td>{{lot.owner.name}}</td>
-          <td>{{lot.winner.name}}</td>
-          <td>
-            <ul>
-              <li ng-repeat="user in lot.users">
-                {{user.id}} || {{user.name}}
-              </li>
-            </ul>
-          </td>
-        </tr>
-      </table>
+
+<div class="header-content">
+  <div class="header-content-inner">
+    <h1 id="homeHeading">Lots list</h1>
+    <hr>
+    <div class="container" ng-controller="LotCtrl">
+
+      <div class="row">
+        <div class="form-group">
+          <table class="table table-inverse">
+            <thead>
+            <tr>
+              <!--<th>ID</th>-->
+              <th>name</th>
+              <th>startDate</th>
+              <th>finishDate</th>
+              <th>step</th>
+              <th>state</th>
+              <th>comments</th>
+              <th>owner</th>
+              <th>winner</th>
+              <th>users</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="lot in lots">
+              <!--<td>{{lot.id}}</td>-->
+              <td>{{lot.name}}</td>
+              <td>{{lot.startDate}}</td>
+              <td>{{lot.finishDate}}</td>
+              <td>{{lot.step}}</td>
+              <td>{{lot.state}}</td>
+              <td>{{lot.comments}}</td>
+              <td>{{lot.owner.name}}</td>
+              <td>{{lot.winner.name}}</td>
+              <td>
+                <ul>
+                  <li ng-repeat="user in lot.users">
+                    {{user.id}} || {{user.name}}
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
