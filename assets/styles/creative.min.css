@@ -20,7 +20,11 @@ body, html {
 }
 .table-inverse{
   background-color: #2aabd2;
-  opacity: 0.76;
+  opacity: 0.86;
+}
+.information{
+  background-color: rgba(220, 221, 212, 0.48)
+
 }
 body {
     font-family: Merriweather, 'Helvetica Neue', Arial, sans-serif;
