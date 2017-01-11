@@ -7,7 +7,7 @@ describe('User model', function () {
     before(function (cb) {
       var userData = {
         name: "myname1",
-        login: "mylogin",
+        login: "mylogin1",
         password: '123',
         roles: 'User'
       };
@@ -22,7 +22,7 @@ describe('User model', function () {
 
     it("must create temp user", function () {
       user.name.should.equal('myname1');
-      user.login.should.equal('mylogin');
+      user.login.should.equal('mylogin1');
       user.password.should.equal('123');
       user.roles.should.equal('User');
     });
@@ -50,7 +50,7 @@ describe('User model', function () {
     before(function (cb) {
       var userData = {
         name: "myname2",
-        login: "mylogin",
+        login: "mylogin2",
         password: '123',
         roles: 'User'
       };
@@ -66,7 +66,7 @@ describe('User model', function () {
       User.findOne({id: user.id}, function (err, result) {
         if (err) return cb(err);
         result.name.should.equal('myname2');
-        result.login.should.equal('mylogin');
+        result.login.should.equal('mylogin2');
         result.password.should.equal('123');
         result.roles.should.equal('User');
         expect(result).to.be.an('object');
@@ -88,7 +88,7 @@ describe('User model', function () {
     before(function (cb) {
       var userData = {
         name: "myname3",
-        login: "mylogin",
+        login: "mylogin3",
         password: '123',
         roles: 'User'
       };
